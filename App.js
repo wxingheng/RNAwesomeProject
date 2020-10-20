@@ -14,6 +14,8 @@ import {
   View,
   Text,
   StatusBar,
+  TouchableOpacity,
+  Alert
 } from 'react-native'
 
 import {
@@ -27,9 +29,15 @@ import {
 import ToastExample from './ToastExample'
 
 class App extends Component {
+  componentDidMount () {
+    // ToastExample.show('Awesome123', ToastExample.SHORT)
+  }
 
-  componentDidMount(){
-    ToastExample.show('Awesome123', ToastExample.SHORT);
+  ToastExample = () => {
+    ToastExample.show('Awesome666', ToastExample.LONG).then(d => {
+      // Alert.alert(d)
+    console.log('ToastExample.show', d)
+    })
   }
 
   render () {
@@ -48,7 +56,14 @@ class App extends Component {
             )}
             <View style={styles.body}>
               <View style={styles.sectionContainer}>
+                <TouchableOpacity
+                  onPress={() => {
+                    this.ToastExample()
+                  }}>
+                  <Text>onPress</Text>
+                </TouchableOpacity>
                 <Text style={styles.sectionTitle}>Step One666</Text>
+
                 <Text style={styles.sectionDescription}>
                   Edit <Text style={styles.highlight}>App.js</Text> to change
                   this screen and then come back to see your edits.
