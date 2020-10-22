@@ -1,4 +1,3 @@
-
 package com.awesomeproject;
 import android.widget.Toast;
 
@@ -41,8 +40,8 @@ public class ToastModule extends ReactContextBaseJavaModule {
   public void show(String message, int duration, Promise promise) {
     Toast.makeText(getReactApplicationContext(), message, duration).show();
     // WritableMap map = Arguments.createMap();
-    // map.putDouble("height", "");
-    promise.resolve("666");
+    // map.put("height", "888");
+    promise.resolve("888");
   }
 
 }
